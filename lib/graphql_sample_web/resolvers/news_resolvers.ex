@@ -5,4 +5,8 @@ defmodule GraphqlSampleWeb.NewsResolver do
     links = News.list_links()
     {:ok, links}
   end
+
+  def link(_root, %{id: id}, _info) do
+    {:ok, GraphqlSample.News.get_link!(id)}
+  end
 end
